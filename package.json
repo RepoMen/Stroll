@@ -1,0 +1,23 @@
+{
+  "name": "Stroll",
+  "version": "1.0.0",
+  "description": "See data on the area currently around you. * Crime * Property Prices * pending...",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RepoMen/Stroll.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RepoMen/Stroll/issues"
+  },
+  "homepage": "https://github.com/RepoMen/Stroll",
+  "dependencies": {
+    "dotenv": "^0.5.1"
+  }
+}
