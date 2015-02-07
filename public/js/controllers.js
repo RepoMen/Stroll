@@ -1,5 +1,5 @@
 angular.module('stroll.controllers', [])
 
-.controller('', function($scope) {
+.controller('HomeController', function($scope) {
 
 });
