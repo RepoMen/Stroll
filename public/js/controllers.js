@@ -4,16 +4,15 @@ angular.module('stroll.controllers', [])
 
 })
 
-.controller('mapCtrl', function($scope) {
-	var mapStyles = 
+.controller('mapCtrl', function($scope, geolocation) {
 
-  $scope.map = { 
-  		center: { 
-  			latitude: 37.78, 
-  			longitude: -122.41 
-  		}, 
-  		zoom: 13
-  	};
+  $scope.map = { center: { latitude: 37.78, longitude: -122.41 }, zoom: 13 };
+
+  geolocation.getLocation().then(function(data) {
+    $scope.coords = {lat:data.coords.latitude, long:data.coords.longitude};
+  }).then(function() {
+    $scope.map = { center: { latitude: $scope.coords.lat, longitude: $scope.coords.long }, zoom: 16 };
+  })
 
   //Google map styling
  	$scope.map.options = {
