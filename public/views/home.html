@@ -1,0 +1,38 @@
+<div id="map_canvas" ng-controller="mapCtrl">    
+	<ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
+		<ui-gmap-marker
+      idKey='1234'
+      coords='map.center'
+      >
+		</ui-gmap-marker>
+
+<!-- 		<ui-gmap-circle center='map.center'
+		  	radius='400'
+		    fill='rgba(0,0,0, .6)'
+		    stroke='rgba(0,0,0,.8)'
+		>
+		</ui-gmap-circle> -->
+
+		<ui-gmap-markers
+       models='crimeData'
+       idKey="'id'"
+       coords="'self'"
+       icon="'icon'"
+      >
+		</ui-gmap-markers>
+	</ui-gmap-google-map>
+
+	<footer>
+		<div class="threat-level v-center">
+			<img src="../img/danger.png" alt="">
+		</div>
+		<div class="button-area v-center">
+			<button class="orange-grad icon v-center">
+				<img src="../img/megaphone.png" alt="">
+				Call Mom
+			</button>
+		</div>
+
+	</footer>
+
+</div>
