@@ -12,18 +12,20 @@ module.exports = {
 
   "sfCrimeData": {
     get: function(req, res){
-      var count = 100;
+      var count = 1000;
+      var monthsBack = 3;
+      var boxSize = 0.005;
 
       // Get Crime data from 3 months back
       var date = new Date();
-      date.setMonth(date.getMonth() - 3);
+      date.setMonth(date.getMonth() - monthsBack);
       date = date.toISOString().split("").slice(0,-5);
       date.push("Z");
       date = date.join("");
 
       // Build a bounding box
       // req.body.coordinates = [37.783409, -122.409176]; // Hack Reactor's coordinates
-      var bbox = [req.body.coordinates[1]-0.01, req.body.coordinates[0]-0.01, req.body.coordinates[1]+0.01, req.body.coordinates[0]+0.01];
+      var bbox = [req.body.coordinates[1]-boxSize, req.body.coordinates[0]-boxSize, req.body.coordinates[1]+boxSize, req.body.coordinates[0]+boxSize];
       bbox = bbox.join(",");
 
       // Build API query
