@@ -2,7 +2,8 @@ var app = angular.module('stroll', [
   'stroll.services',
   'stroll.controllers',
   'ui.router',
-  'uiGmapgoogle-maps'
+  'uiGmapgoogle-maps',
+  'geolocation'
 ])
 
 .config(function($stateProvider, $urlRouterProvider, uiGmapGoogleMapApiProvider, googleMapKey) {
