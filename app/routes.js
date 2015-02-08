@@ -22,7 +22,7 @@ module.exports = {
       date = date.join("");
 
       // Build a bounding box
-      // req.body.coordinates = [37.783409, -122.409176]; // Hack Reactor's coordinates
+      req.body.coordinates = [37.783409, -122.409176]; // Hack Reactor's coordinates
       var bbox = [req.body.coordinates[1]-0.01, req.body.coordinates[0]-0.01, req.body.coordinates[1]+0.01, req.body.coordinates[0]+0.01];
       bbox = bbox.join(",");
 
