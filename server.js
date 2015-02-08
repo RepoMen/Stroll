@@ -1,4 +1,5 @@
 var express = require("express");
+var cors = require("cors");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var path = require("path");
@@ -9,6 +10,7 @@ var routes = require("./app/routes");
 var app = express();
 var port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({"extended": "true"}));
 app.use(bodyParser.json());

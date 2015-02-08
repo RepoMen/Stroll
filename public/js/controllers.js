@@ -1,7 +1,8 @@
 angular.module('stroll.controllers', [])
 
-.controller('HomeController', function($scope) {
-
+.controller('HomeController', function($scope, Sinch) {
+  Sinch.sendMessage();
+  console.log('Sinch', Sinch);
 })
 
 .controller('mapCtrl', function($scope, geolocation, $http) {
