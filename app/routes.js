@@ -1,4 +1,6 @@
 var request = require("request");
+var sinchAuth = require('sinch-auth');
+var sinchSms = require('sinch-messaging');
 
 module.exports = {
   "exampleEndPoint": {
@@ -12,28 +14,10 @@ module.exports = {
 
   "sendSinchMessage": {
     post: function(req, res){
-      console.log('req body',req.body);
-      // request.post(url,callback)
-      request({
-      method: 'POST',
-      url: 'https://messagingapi.sinch.com/v1/sms/19738655005',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-      data: {
-        "message":"TEST"
-      },
-      user:
-        "application\\" + req.body.key + ":" + req.body.secret
-      })
-      .then(function(res) {
-        console.log('res happened');
-        return res;
-      })
-      .catch(function(error) {
-        console.log('Error sending message');
-      });
+
+      var auth = sinchAuth(req.body.key, req.body.secret);
+      sinchSms.sendMessage("+19738655005", "Hello world!");
+
     }
   },
 
