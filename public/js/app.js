@@ -14,7 +14,7 @@ var app = angular.module('stroll', [
       controller: 'HomeController'
     })
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
 
   uiGmapGoogleMapApiProvider.configure({
         key: googleMapKey.key,
