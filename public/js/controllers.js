@@ -4,7 +4,42 @@ angular.module('stroll.controllers', [])
 
 })
 
-.controller('mapCtrl', function($scope, geolocation) {
+.controller('mapCtrl', function($scope, geolocation, $http) {
+
+	var icons = {
+		theft: './img/theft_sm.png',
+		assault: './img/assault_sm.png'
+	};
+
+	$scope.crimeData = [];
+
+	$http.get('/sfCrimeData').
+	  success(function(data, status, headers, config) {
+	    // this callback will be called asynchronously
+	    // when the response is available
+
+	    for(var k in data.features){
+	    	var me = data.features[k];
+	    	var thisCrimeType = "assault";
+	    	
+	    	for(var crimeType in icons){
+	    		var regex = new RegExp(crimeType.toUpperCase(), "g");
+	    		if(regex.test(me.properties.crime_type)){
+	    			thisCrimeType = crimeType;
+	    		}
+	    	}
+	    	me.longitude = me.geometry.coordinates[0];
+	    	me.latitude = me.geometry.coordinates[1];
+	    	me.icon = icons[thisCrimeType];
+	    }
+
+	    $scope.crimeData = data.features;
+	  }).
+	  error(function(data, status, headers, config) {
+	    // called asynchronously if an error occurs
+	    // or server returns response with an error status.
+	  });
+
 
   $scope.map = { center: { latitude: 37.78, longitude: -122.41 }, zoom: 13 };
 

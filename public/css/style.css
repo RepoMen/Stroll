@@ -60,6 +60,8 @@ table {
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 /*** End Clearfix ***/
 
+
+
 html, body {
 	width: 100%;
 	height: 100%;
@@ -68,6 +70,7 @@ html, body {
 /*** Text Styling ***/
 body{
 	font-size: 16px;
+	font-family: 'Archivo Narrow', sans-serif;
 }
 
 h1{
@@ -79,6 +82,61 @@ h2{
 }
 
 
+/********** Utility Classes **********/
+.v-center{
+  /* Internet Explorer 10 */
+  display:-ms-flexbox;
+  -ms-flex-pack:center;
+  -ms-flex-align:center;
+
+  /* Firefox */
+  display:-moz-box;
+  -moz-box-pack:center;
+  -moz-box-align:center;
+
+  /* Safari, Opera, and Chrome */
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-align:center;
+
+  /* W3C */
+  display:box;
+  box-pack:center;
+  box-align:center;
+}
+
+/*** UI elements ***/
+button{
+
+	margin: 0 auto;
+	border: 3px solid #77e1f8;
+	padding: 5px 15px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1em;
+	letter-spacing: 2px;
+	cursor: pointer;
+
+	background: rgb(17,204,206); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(17,204,206,1) 0%, rgba(6,154,185,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(17,204,206,1)), color-stop(100%,rgba(6,154,185,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(17,204,206,1) 0%,rgba(6,154,185,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(17,204,206,1) 0%,rgba(6,154,185,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(17,204,206,1) 0%,rgba(6,154,185,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(17,204,206,1) 0%,rgba(6,154,185,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11ccce', endColorstr='#069ab9',GradientType=0 ); /* IE6-9 */
+	font-family: 'Archivo Narrow', sans-serif;
+}
+
+	button.icon img{
+		float: left;
+		width: 22px;
+		margin: 0px 15px 0 0;
+	}
+
 /*** Layout ***/
 #wrapper, #map_canvas{
 	width: 100%;
@@ -89,4 +147,33 @@ h2{
 		height: 100%;
 	}
 
+
+footer{
+	height: 75px;
+	background: rgba(0, 0, 0, .75);
+	border-top: 2px solid #000;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	z-index: 500;
+}
+
+	.threat-level{
+		width: 15%;
+		height: 100%;
+		float: left;
+		background: #F63A3A;
+		text-align: center;
+	}
+
+		.threat-level img{
+			width: 25px;
+		}
+
+	.button-area{
+		width: 85%;
+		height: 100%;
+		float: left;
+		text-align: center
+	}
 
