@@ -14,9 +14,9 @@ module.exports = {
 
   "sendSinchMessage": {
     post: function(req, res){
-
+      console.log('sinch message clicked');
       var auth = sinchAuth(req.body.key, req.body.secret);
-      sinchSms.sendMessage("+19738655005", "Hello world!");
+      sinchSms.sendMessage("+your phone number", "TEST2!");
 
     }
   },
