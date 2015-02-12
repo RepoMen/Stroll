@@ -1,10 +1,17 @@
 angular.module('stroll.controllers', [])
 
-.controller('HomeController', function($scope) {
-
+.controller('HomeController', function($scope, Sinch) {
+  // Sinch.sendMessage();
+  console.log('Sinch', Sinch);
 })
 
-.controller('mapCtrl', function($scope, geolocation, $http) {
+.controller('mapCtrl', function($scope, geolocation, $http, Sinch) {
+
+
+  $scope.sendMessage = function() {
+  console.log('inside send message in mapctrl');
+    Sinch.sendMessage();
+  }
 
 	var icons = {
 		theft: './img/theft_sm.png',
@@ -21,7 +28,7 @@ angular.module('stroll.controllers', [])
 	    for(var k in data.features){
 	    	var me = data.features[k];
 	    	var thisCrimeType = "assault";
-	    	
+
 	    	for(var crimeType in icons){
 	    		var regex = new RegExp(crimeType.toUpperCase(), "g");
 	    		if(regex.test(me.properties.crime_type)){

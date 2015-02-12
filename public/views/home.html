@@ -1,4 +1,4 @@
-<div id="map_canvas" ng-controller="mapCtrl">    
+<div id="map_canvas" ng-controller="mapCtrl">
 	<ui-gmap-google-map center="map.center" zoom="map.zoom" options="map.options">
 		<ui-gmap-marker
       idKey='1234'
@@ -27,7 +27,7 @@
 			<img src="../img/danger.png" alt="">
 		</div>
 		<div class="button-area v-center">
-			<button class="orange-grad icon v-center">
+			<button ng-click="sendMessage()" class="orange-grad icon v-center">
 				<img src="../img/megaphone.png" alt="">
 				Call Mom
 			</button>

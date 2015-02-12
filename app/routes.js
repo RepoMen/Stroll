@@ -1,4 +1,6 @@
 var request = require("request");
+var sinchAuth = require('sinch-auth');
+var sinchSms = require('sinch-messaging');
 
 module.exports = {
   "exampleEndPoint": {
@@ -7,6 +9,15 @@ module.exports = {
     },
     post: function(req, res){
       res.status(200).send("justPosted");
+    }
+  },
+
+  "sendSinchMessage": {
+    post: function(req, res){
+      console.log('sinch message clicked');
+      var auth = sinchAuth(req.body.key, req.body.secret);
+      sinchSms.sendMessage("+your phone number", "TEST2!");
+
     }
   },
 
